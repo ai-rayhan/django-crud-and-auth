@@ -1,0 +1,16 @@
+<!-- myapp/templates/product_list.html -->
+<h2>Product List</h2>
+
+{% if products %}
+  <ul>
+    {% for product in products %}
+      <li>
+        {{ product.name }} - {{ product.price }}
+        <a href="{% url 'update_product' product.id %}">Update Product</a>
+        <a href="{% url 'delete_product' product.id %}">Delete Product</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No products available.</p>
+{% endif %}
